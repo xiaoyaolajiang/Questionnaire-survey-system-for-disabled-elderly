@@ -16,23 +16,28 @@ st.markdown(
     """
     <style>
       .stApp { background: #eef7f6; }
-      header[data-testid="stHeader"] { background: transparent; }
-      .block-container {
-        max-width: 1180px;
-        padding-top: 1.2rem;
-        padding-bottom: 1rem;
+      header[data-testid="stHeader"],
+      footer,
+      div[data-testid="stToolbar"],
+      div[data-testid="stDecoration"] {
+        display: none;
       }
-      iframe { border-radius: 10px; background: white; }
+      .block-container {
+        max-width: 1120px;
+        padding: 0;
+      }
+      iframe {
+        display: block;
+        border-radius: 0;
+        background: white;
+      }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-st.title("老年人失能风险监测评估")
-st.caption("问卷、摄像头录制与本地 ZIP 导出均在访问者浏览器内完成；服务器仅负责托管页面。")
-
 if not SURVEY_HTML.exists():
     st.error("未找到 tablet_survey/index.html。请确认已将 tablet_survey 文件夹一并上传到 GitHub 仓库。")
     st.stop()
 
-components.html(SURVEY_HTML.read_text(encoding="utf-8"), height=920, scrolling=True)
+components.html(SURVEY_HTML.read_text(encoding="utf-8"), height=980, scrolling=True)
