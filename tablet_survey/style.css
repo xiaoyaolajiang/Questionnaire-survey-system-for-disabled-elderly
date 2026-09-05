@@ -16,9 +16,9 @@
   --warning: oklch(61% 0.13 70);
   --danger: oklch(54% 0.16 25);
   --ok: oklch(48% 0.12 155);
-  --shadow-sm: 0 1px 2px oklch(24% 0.045 206 / 0.06);
-  --shadow-md: 0 14px 36px oklch(24% 0.045 206 / 0.12);
-  --shadow-lg: 0 28px 70px oklch(24% 0.045 206 / 0.16);
+  --shadow-sm: 0 1px 2px oklch(24% 0.045 206 / 0.05);
+  --shadow-md: 0 8px 20px oklch(24% 0.045 206 / 0.08);
+  --shadow-lg: 0 16px 36px oklch(24% 0.045 206 / 0.1);
   --space-2xs: 4px;
   --space-xs: 8px;
   --space-sm: 12px;
@@ -50,10 +50,10 @@ body {
 
 body::before {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 0;
-  opacity: 0.28;
+  opacity: 0.18;
   background-image:
     linear-gradient(90deg, oklch(48% 0.105 199 / 0.12) 1px, transparent 1px),
     linear-gradient(0deg, oklch(48% 0.105 199 / 0.1) 1px, transparent 1px);
@@ -206,7 +206,7 @@ button {
 .consent-document {
   display: grid;
   gap: var(--space-md);
-  max-height: min(64vh, 620px);
+  max-height: min(72vh, 760px);
   margin-top: var(--space-xl);
   overflow: auto;
   padding: var(--space-xl);
@@ -580,6 +580,50 @@ button {
   .record-status {
     width: 100%;
     text-align: center;
+  }
+}
+
+@media (max-width: 1180px), (hover: none) {
+  body {
+    background: linear-gradient(135deg, oklch(97% 0.018 202) 0%, oklch(94% 0.032 190) 100%);
+  }
+
+  body::before {
+    display: none;
+  }
+
+  .cover-panel,
+  .consent-panel,
+  .question-card,
+  .finish-panel,
+  .matrix-wrap,
+  .field-input,
+  .field-select,
+  .option-item,
+  .question-image {
+    box-shadow: none;
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .record-toggle-btn,
+  .option-item {
+    transition: background 120ms ease, border-color 120ms ease, opacity 120ms ease;
+  }
+
+  .primary-btn:hover,
+  .option-item:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .option-item:has(input:checked) {
+    box-shadow: none;
+  }
+
+  .consent-document {
+    max-height: none;
+    overflow: visible;
   }
 }
 
