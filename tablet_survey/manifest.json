@@ -1,0 +1,9 @@
+{
+  "name": "老年人失能风险监测评估",
+  "short_name": "问卷采集",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f7f3ea",
+  "theme_color": "#2d5a54",
+  "lang": "zh-CN"
+}
